@@ -14,12 +14,14 @@ class MenuViewController : UIViewController {
     var width = UIScreen.main.bounds.width
     var height = UIScreen.main.bounds.height
     var dataSoruce : MenuObject?
+    
+    var backgorundColor = UIColor(displayP3Red: 0.95, green: 0.95, blue: 0.95, alpha: 1)
 
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.backgroundColor = .red
+        view.backgroundColor = backgorundColor
         
         getData()
         initUI()
@@ -28,7 +30,7 @@ class MenuViewController : UIViewController {
     
     func initUI(){
         tableView = UITableView(frame: CGRect(x: 10, y: 20, width: width - 20, height: height - 100))
-        tableView?.backgroundColor = .orange
+        tableView?.backgroundColor = backgorundColor
         tableView?.delegate = self
         tableView?.dataSource = self
         
@@ -115,6 +117,10 @@ extension MenuViewController : UITableViewDataSource{
         let cell = MenuTableViewCell(producto: product!)
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return height / 6
+    }
 }
 
 
@@ -129,14 +135,12 @@ extension MenuViewController : UITableViewDelegate{
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = UIView() // Aqui definimos el UIView el cual se va a retornar en la funcion
         let color = UIColor(displayP3Red: .random(in: 0...1), green: .random(in: 0...1), blue: .random(in: 0...1), alpha: 1) // Creacmos una constante color en la cual se definiran colores random
-        view.backgroundColor = color // Le asignamos el color random al background de la vista
+        view.backgroundColor = backgorundColor // Le asignamos el color random al background de la vista
         
-        let image = UIImageView(frame: CGRect(x: 2, y: 2, width: 20, height: 20)) // Declaramos una imagen
-        image.image = UIImage(named: "menu") //Le asignamos una imagen
-        view.addSubview(image) // Lo agregamos a la vista
-        
-        let label = UILabel(frame: CGRect(x: 25, y: 2, width: 100, height: 20))
+       
+        let label = UILabel(frame: CGRect(x: 10, y: 0, width: 100, height: 20))
         label.text = dataSoruce?.categorias?[section].nombre ?? ""
+        label.font = .boldSystemFont(ofSize: 20)
         view.addSubview(label)
         
         

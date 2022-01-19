@@ -10,6 +10,7 @@ import UIKit
 
 class MenuTableViewCell : UITableViewCell{
     
+    var ownContent : UIView?
     var nameProduct : UILabel?
     var descriptionProduct : UILabel?
     var priceProduct : UILabel?
@@ -19,20 +20,41 @@ class MenuTableViewCell : UITableViewCell{
     
     var producto : Producto?
     
+    
+    var width = UIScreen.main.bounds.width
+    var height = UIScreen.main.bounds.height
+    
     init(producto : Producto){
         super.init(style: .default, reuseIdentifier: nil)
         self.producto = producto
-        self.backgroundColor = .purple
+        self.backgroundColor = .clear
         
         initUI()
     }
     
     func initUI(){
-        nameProduct = UILabel(frame: CGRect(x: 5, y: 5, width: 100, height: 20))
-        nameProduct?.text = producto?.nombre
-        nameProduct?.textAlignment = .center
         
-        self.addSubview(nameProduct!)
+        ownContent = UIView(frame: CGRect(x: 0, y: 5, width: width - 20, height: height/6 - 10))
+        ownContent?.backgroundColor = .white
+        ownContent?.layer.cornerRadius = 10
+        self.addSubview(ownContent!)
+        
+        
+        nameProduct = UILabel(frame: CGRect(x: 5, y: 5, width: width/2, height: 20))
+        nameProduct?.text = producto?.nombre
+        nameProduct?.textAlignment = .left
+        nameProduct?.font = .boldSystemFont(ofSize: 18)
+        ownContent?.addSubview(nameProduct!)
+        
+        descriptionProduct = UILabel(frame: CGRect(x: 5, y: 30, width: width/2, height: 70))
+        descriptionProduct?.text = producto?.descripcion
+        descriptionProduct?.numberOfLines = 0
+        descriptionProduct?.textAlignment = .left
+        descriptionProduct?.adjustsFontSizeToFitWidth = true
+        ownContent?.addSubview(descriptionProduct!)
+        
+
+        
         
     }
     
