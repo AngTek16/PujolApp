@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "lista-de-verificacion.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
