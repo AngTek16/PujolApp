@@ -19,6 +19,7 @@
 		BF176F0A27912B550001DA34 /* PedidoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF176F0927912B550001DA34 /* PedidoViewController.swift */; };
 		BF176F0F27925AA10001DA34 /* MenuObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF176F0E27925AA10001DA34 /* MenuObject.swift */; };
 		BFCE6E57279653EB00B57608 /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCE6E56279653EB00B57608 /* MenuTableViewCell.swift */; };
+		BFCE6E7A27990D6100B57608 /* DetailProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCE6E7927990D6100B57608 /* DetailProductViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		BF176F0927912B550001DA34 /* PedidoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PedidoViewController.swift; sourceTree = "<group>"; };
 		BF176F0E27925AA10001DA34 /* MenuObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuObject.swift; sourceTree = "<group>"; };
 		BFCE6E56279653EB00B57608 /* MenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
+		BFCE6E7927990D6100B57608 /* DetailProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailProductViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 		BF176F0B279259BB0001DA34 /* Menu */ = {
 			isa = PBXGroup;
 			children = (
+				BFCE6E7827990D2A00B57608 /* DetailProduct */,
 				BFCE6E55279653B400B57608 /* SubViews */,
 				BF176F0527912B000001DA34 /* MenuViewController.swift */,
 				BF176F0E27925AA10001DA34 /* MenuObject.swift */,
@@ -115,6 +118,14 @@
 				BFCE6E56279653EB00B57608 /* MenuTableViewCell.swift */,
 			);
 			path = SubViews;
+			sourceTree = "<group>";
+		};
+		BFCE6E7827990D2A00B57608 /* DetailProduct */ = {
+			isa = PBXGroup;
+			children = (
+				BFCE6E7927990D6100B57608 /* DetailProductViewController.swift */,
+			);
+			path = DetailProduct;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -197,6 +208,7 @@
 				BF176EF227910F2D0001DA34 /* SceneDelegate.swift in Sources */,
 				BF176F0827912B300001DA34 /* InventarioViewController.swift in Sources */,
 				BF176F0F27925AA10001DA34 /* MenuObject.swift in Sources */,
+				BFCE6E7A27990D6100B57608 /* DetailProductViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

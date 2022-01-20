@@ -34,7 +34,7 @@ class MenuTableViewCell : UITableViewCell{
     
     func initUI(){
         
-        ownContent = UIView(frame: CGRect(x: 0, y: 5, width: width - 20, height: height/6 - 10))
+        ownContent = UIView(frame: CGRect(x: 0, y: 5, width: width - 20, height: height/5 - 10))
         ownContent?.backgroundColor = .white
         ownContent?.layer.cornerRadius = 10
         self.addSubview(ownContent!)
@@ -53,6 +53,27 @@ class MenuTableViewCell : UITableViewCell{
         descriptionProduct?.adjustsFontSizeToFitWidth = true
         ownContent?.addSubview(descriptionProduct!)
         
+        
+        addButton = UIButton(frame: CGRect(x: 10, y: (height/5 - 10) - 45, width: 90, height: 35))
+        addButton?.backgroundColor = .white
+        addButton?.setTitle("Agregar", for: .normal)
+        addButton?.setTitleColor(.orange, for: .normal) // Modificamos el color del titulo del boton
+        addButton?.layer.borderColor = UIColor.orange.cgColor
+        addButton?.layer.borderWidth = 1 // Aqui definimos el ancho del borde
+        addButton?.layer.cornerRadius = 10
+        
+        ownContent?.addSubview(addButton!)
+        
+        
+        
+        imageProduct = UIImageView(frame: CGRect(x: width / 2, y: 10, width: width / 2 - 30, height: height/5 - 30))
+        imageProduct?.image = UIImage(named: producto?.imagen ?? "")
+        imageProduct?.layer.cornerRadius = 10
+        imageProduct?.backgroundColor = .red
+      //  imageProduct?.contentMode = .scaleAspectFit
+        imageProduct?.layer.masksToBounds = true
+        
+        ownContent?.addSubview(imageProduct!)
 
         
         

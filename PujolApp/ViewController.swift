@@ -68,7 +68,8 @@ class ViewController: UIViewController {
     @objc func goToPedido(){
         print("Vamos por el pedido!")
         let pedidoViewControllewr = PedidoViewController()
-        present(pedidoViewControllewr, animated: true, completion: nil)
+        navigationController?.pushViewController(pedidoViewControllewr, animated: true)
+     //   present(pedidoViewControllewr, animated: true, completion: nil)
     }
 
 

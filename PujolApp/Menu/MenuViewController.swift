@@ -88,11 +88,11 @@ class MenuViewController : UIViewController {
         let comida = Categoria(nombre: "Comida", productos: [hotdog,hamburguesa,omelet,caldoDeRes,pizza])
        
         // MARK: - Desayunos
-        let jugoVerde = Producto(nombre: "Jugo Verde", descripcion: "Jugo de naranja, piña y apio", precio: 20.0, imagen: "jugo verde", peso: 250, calorias: 0)
+        let jugoVerde = Producto(nombre: "Jugo Verde", descripcion: "Jugo de naranja, piña y apio", precio: 20.0, imagen: "jericalla", peso: 250, calorias: 0)
                
-        let huevosRevueltos = Producto(nombre: "Huevos revueltos", descripcion: "Huevos revueltos con jamon, tocino o chorizo", precio: 70.0, imagen: "huevos revueltos", peso: 400, calorias: 500)
+        let huevosRevueltos = Producto(nombre: "Huevos revueltos", descripcion: "Huevos revueltos con jamon, tocino o chorizo", precio: 70.0, imagen: "pedido", peso: 400, calorias: 500)
         
-        let hotcakes = Producto(nombre: "Hotcakes", descripcion: "Discos de masa dulce", precio: 40.0, imagen: "hotcakes", peso: 250, calorias: 1200)
+        let hotcakes = Producto(nombre: "Hotcakes", descripcion: "Discos de masa dulce", precio: 40.0, imagen: "pedido", peso: 250, calorias: 1200)
         let desayuno = Categoria(nombre: "Desayuno", productos: [jugoVerde,huevosRevueltos,hotcakes])
         
         // MARK: - Menu
@@ -119,7 +119,7 @@ extension MenuViewController : UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return height / 6
+        return height / 5
     }
 }
 
@@ -150,6 +150,9 @@ extension MenuViewController : UITableViewDelegate{
     ///Cacha el Clik en cada celda para alguna accion
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("Estoy en la seccion \(indexPath.section) en la celda \(indexPath.row)")
+        let vc = DetailProductViewController()
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true, completion: nil)
     }
     
     ///Numero de secciones que vamos a usar
