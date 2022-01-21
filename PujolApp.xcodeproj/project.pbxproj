@@ -20,6 +20,7 @@
 		BF176F0F27925AA10001DA34 /* MenuObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF176F0E27925AA10001DA34 /* MenuObject.swift */; };
 		BFCE6E57279653EB00B57608 /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCE6E56279653EB00B57608 /* MenuTableViewCell.swift */; };
 		BFCE6E7A27990D6100B57608 /* DetailProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCE6E7927990D6100B57608 /* DetailProductViewController.swift */; };
+		BFCE6E7D279A59A600B57608 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCE6E7C279A59A600B57608 /* Utils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		BF176F0E27925AA10001DA34 /* MenuObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuObject.swift; sourceTree = "<group>"; };
 		BFCE6E56279653EB00B57608 /* MenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
 		BFCE6E7927990D6100B57608 /* DetailProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailProductViewController.swift; sourceTree = "<group>"; };
+		BFCE6E7C279A59A600B57608 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +72,7 @@
 		BF176EEE27910F2D0001DA34 /* PujolApp */ = {
 			isa = PBXGroup;
 			children = (
+				BFCE6E7B279A598C00B57608 /* Utils */,
 				BF176F0D279259D30001DA34 /* Pedido */,
 				BF176F0C279259C70001DA34 /* Inventario */,
 				BF176F0B279259BB0001DA34 /* Menu */,
@@ -126,6 +129,14 @@
 				BFCE6E7927990D6100B57608 /* DetailProductViewController.swift */,
 			);
 			path = DetailProduct;
+			sourceTree = "<group>";
+		};
+		BFCE6E7B279A598C00B57608 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				BFCE6E7C279A59A600B57608 /* Utils.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -206,6 +217,7 @@
 				BF176F04279112840001DA34 /* RestaurantOptionView.swift in Sources */,
 				BFCE6E57279653EB00B57608 /* MenuTableViewCell.swift in Sources */,
 				BF176EF227910F2D0001DA34 /* SceneDelegate.swift in Sources */,
+				BFCE6E7D279A59A600B57608 /* Utils.swift in Sources */,
 				BF176F0827912B300001DA34 /* InventarioViewController.swift in Sources */,
 				BF176F0F27925AA10001DA34 /* MenuObject.swift in Sources */,
 				BFCE6E7A27990D6100B57608 /* DetailProductViewController.swift in Sources */,
