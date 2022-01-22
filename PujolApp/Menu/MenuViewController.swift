@@ -98,7 +98,15 @@ class MenuViewController : UIViewController {
         // MARK: - Menu
         let menu = MenuObject(categorias: [desayuno,comida,cena,postre,bebidas,alcohol], title: "Menu Pujol")
         
+       
         dataSoruce = menu
+        
+        
+ 
+        
+//        dataSoruce?.categorias = dataSoruce?.categorias?.filter({$0.nombre == "Desayuno"})
+//
+//        tableView?.reloadData()
     }
 }
 
@@ -150,7 +158,9 @@ extension MenuViewController : UITableViewDelegate{
     ///Cacha el Clik en cada celda para alguna accion
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("Estoy en la seccion \(indexPath.section) en la celda \(indexPath.row)")
+        let producto = dataSoruce?.categorias?[indexPath.section].productos?[indexPath.row]
         let vc = DetailProductViewController()
+        vc.product = producto
         vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true, completion: nil)
     }

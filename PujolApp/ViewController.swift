@@ -29,22 +29,26 @@ class ViewController: UIViewController {
     
     func initUI(){
 
+        menuOption = RestaurantOptionView(iconName: "menu", titleString: "Menu Pujol") // 1
+        view.addSubview(menuOption!) // 2
+        menuOption?.addAnchorsAndSize(width: nil, height: 50, left: 20, top: 100, right: 20, bottom: nil) // 3
         
-        menuOption = RestaurantOptionView(iconName: "menu", titleString: "Menu Pujol")
-        view.addSubview(menuOption!)
-        
-        menuOption?.addAnchorsAndSize(width: nil, height: 50, left: 20, top: 100, right: 20, bottom: nil)
         let tapMenu = UITapGestureRecognizer(target: self, action: #selector(goToMenu))
         menuOption?.addGestureRecognizer(tapMenu)
         
-        inventarioOption = RestaurantOptionView(iconName: "inventario", titleString: "Inventario", frame:CGRect(x: 20, y: 200, width: width - 40, height: 50))
+        inventarioOption = RestaurantOptionView(iconName: "inventario", titleString: "Inventario")
         view.addSubview(inventarioOption!)
+        
         let tapInventario = UITapGestureRecognizer(target: self, action: #selector(goToInventario))
         inventarioOption?.addGestureRecognizer(tapInventario)
+
+        inventarioOption?.addAnchorsAndSize(width: nil, height: 50, left: 20, top: 50, right: 20, bottom: nil, withAnchor: .top, relativeToView: menuOption)
         
-        pedidoOption = RestaurantOptionView(iconName: "pedido", titleString: "Hacer un pedido", frame: CGRect(x: 20, y: 300, width: width - 40, height: 50))
+        pedidoOption = RestaurantOptionView(iconName: "pedido", titleString: "Hacer un pedido")
         view.addSubview(pedidoOption!)
-       
+
+        pedidoOption?.addAnchorsAndSize(width: nil, height: 50, left: 20, top: 50, right: 20, bottom: nil, withAnchor: .top, relativeToView: inventarioOption)
+        
         ///UITapGestureRecognizer nos sirve para poder cachar la accion de Tap en un objeto, que no es capaz de hacerlo por si mismo
         let tapPedido = UITapGestureRecognizer(target: self, action: #selector(goToPedido))
         //Aqui le asignamos el gesture a una view

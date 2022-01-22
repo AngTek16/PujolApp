@@ -22,18 +22,22 @@ class RestaurantOptionView : UIView{ // Se crea una clase que hereda de UIView
         self.layer.borderColor = UIColor.darkGray.cgColor
         self.layer.cornerRadius = 10
         
-        icon = UIImageView(frame: CGRect(x: 10, y: 5, width: 40, height: 40))
-        icon?.backgroundColor = .white
+        icon = UIImageView()
+        icon?.backgroundColor = .clear
         icon?.image = UIImage(named: iconName)
         icon?.contentMode = .scaleAspectFit
         self.addSubview(icon!)
         
-        titleSection = UILabel(frame: CGRect(x: 70, y: 0, width: frame.width - 80, height: 50))
-        titleSection?.backgroundColor = .white
+        icon?.addAnchorsAndSize(width: 40, height: 40, left: 10, top: 5, right: nil, bottom: nil)
+        
+        titleSection = UILabel()
+        titleSection?.backgroundColor = .clear
         titleSection?.text = titleString
         titleSection?.textAlignment = .center
         titleSection?.font = UIFont(name: "Helvetica Bold", size: 17)
         self.addSubview(titleSection!)
+        
+        titleSection?.addAnchors(left: 10, top: 0, right: 0, bottom: 0, withAnchor: .left, relativeToView: icon)
     }
     
     
