@@ -14,8 +14,8 @@ class RestaurantOptionView : UIView{ // Se crea una clase que hereda de UIView
     var titleSection : UILabel? // Atributo que es un UILabel
     
 
-    init(iconName : String, titleString : String, frame : CGRect){
-        super.init(frame: frame)
+    init(iconName : String, titleString : String){
+        super.init(frame: .zero)
         self.backgroundColor = .white
         
         self.layer.borderWidth = 1

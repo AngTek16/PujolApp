@@ -11,10 +11,13 @@ class DetailProductViewController: UIViewController {
 
     var topImageView : UIImageView?
     
+    var superContent : UIScrollView?
+    
     var width = UIScreen.main.bounds.width
     var height = UIScreen.main.bounds.height
     var backgroundColor = UIColor(displayP3Red: 219/255, green: 219/255, blue: 219/255, alpha: 1)
     
+    var backButton : UIButton?
     
     //MARK: - Definicion del primer elemento
     var productContentView : UIView?
@@ -23,7 +26,12 @@ class DetailProductViewController: UIViewController {
     var productName : UILabel?
     var productPrice : UILabel?
     
-    var backButton : UIButton?
+    //MARK: - Definicion de descripcion
+    var descripcionView : UIView?
+    var descriptionTextView : UITextView?
+    var calorias : UILabel?
+    var procion : UILabel?
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,11 +52,12 @@ class DetailProductViewController: UIViewController {
         view.addSubview(backButton!)
         
         createProductView()
+        createDescription()
     }
     
     func createProductView(){
         productContentView = UIView(frame: CGRect(x: 20, y: height/5, width: width - 40, height: height/4))
-        productContentView?.backgroundColor = .clear
+        productContentView?.backgroundColor = .blue
         view.addSubview(productContentView!)
         
         productCard = UIView(frame: CGRect(x: 0, y: height/8, width: width - 40, height: height/8))
@@ -77,6 +86,18 @@ class DetailProductViewController: UIViewController {
         productPrice?.backgroundColor = .clear
         productCard?.addSubview(productPrice!)
         
+    }
+    
+    func createDescription(){
+        descripcionView = UIView() // Paso 1 inicializar objeto
+        descripcionView?.backgroundColor = .red
+        
+        view.addSubview(descripcionView!) // Paso 2 agregar el objeto a un view
+        
+      //  descripcionView?.addAnchors(left: 20, top: 10, right: 20, bottom: 100,withAnchor: .top, relativeToView: productContentView) // Paso 3 darle constrains
+        
+        
+        descripcionView?.addAnchorsAndSize(width: nil, height: height/4, left: 20, top: 15, right: 20, bottom: nil, withAnchor: .top, relativeToView: productContentView)
     }
     
     @objc func backAction(){

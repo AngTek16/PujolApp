@@ -30,8 +30,10 @@ class ViewController: UIViewController {
     func initUI(){
 
         
-        menuOption = RestaurantOptionView(iconName: "menu", titleString: "Menu Pujol", frame: CGRect(x: 20, y: 100, width: width - 40, height: 50))
+        menuOption = RestaurantOptionView(iconName: "menu", titleString: "Menu Pujol")
         view.addSubview(menuOption!)
+        
+        menuOption?.addAnchorsAndSize(width: nil, height: 50, left: 20, top: 100, right: 20, bottom: nil)
         let tapMenu = UITapGestureRecognizer(target: self, action: #selector(goToMenu))
         menuOption?.addGestureRecognizer(tapMenu)
         
