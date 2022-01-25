@@ -18,6 +18,7 @@
 		BF176F0827912B300001DA34 /* InventarioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF176F0727912B300001DA34 /* InventarioViewController.swift */; };
 		BF176F0A27912B550001DA34 /* PedidoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF176F0927912B550001DA34 /* PedidoViewController.swift */; };
 		BF176F0F27925AA10001DA34 /* MenuObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF176F0E27925AA10001DA34 /* MenuObject.swift */; };
+		BF9538F1279F8CA900D596BA /* InventarioCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9538F0279F8CA900D596BA /* InventarioCollectionCell.swift */; };
 		BFCE6E57279653EB00B57608 /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCE6E56279653EB00B57608 /* MenuTableViewCell.swift */; };
 		BFCE6E7A27990D6100B57608 /* DetailProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCE6E7927990D6100B57608 /* DetailProductViewController.swift */; };
 		BFCE6E7D279A59A600B57608 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCE6E7C279A59A600B57608 /* Utils.swift */; };
@@ -37,6 +38,7 @@
 		BF176F0727912B300001DA34 /* InventarioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventarioViewController.swift; sourceTree = "<group>"; };
 		BF176F0927912B550001DA34 /* PedidoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PedidoViewController.swift; sourceTree = "<group>"; };
 		BF176F0E27925AA10001DA34 /* MenuObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuObject.swift; sourceTree = "<group>"; };
+		BF9538F0279F8CA900D596BA /* InventarioCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventarioCollectionCell.swift; sourceTree = "<group>"; };
 		BFCE6E56279653EB00B57608 /* MenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
 		BFCE6E7927990D6100B57608 /* DetailProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailProductViewController.swift; sourceTree = "<group>"; };
 		BFCE6E7C279A59A600B57608 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 		BF176F0C279259C70001DA34 /* Inventario */ = {
 			isa = PBXGroup;
 			children = (
+				BF9538EF279F8C1300D596BA /* SubViews */,
 				BF176F0727912B300001DA34 /* InventarioViewController.swift */,
 			);
 			path = Inventario;
@@ -113,6 +116,14 @@
 				BF176F0927912B550001DA34 /* PedidoViewController.swift */,
 			);
 			path = Pedido;
+			sourceTree = "<group>";
+		};
+		BF9538EF279F8C1300D596BA /* SubViews */ = {
+			isa = PBXGroup;
+			children = (
+				BF9538F0279F8CA900D596BA /* InventarioCollectionCell.swift */,
+			);
+			path = SubViews;
 			sourceTree = "<group>";
 		};
 		BFCE6E55279653B400B57608 /* SubViews */ = {
@@ -210,6 +221,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF9538F1279F8CA900D596BA /* InventarioCollectionCell.swift in Sources */,
 				BF176EF427910F2D0001DA34 /* ViewController.swift in Sources */,
 				BF176F0A27912B550001DA34 /* PedidoViewController.swift in Sources */,
 				BF176F0627912B000001DA34 /* MenuViewController.swift in Sources */,
