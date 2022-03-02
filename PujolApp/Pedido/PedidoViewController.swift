@@ -17,6 +17,12 @@ class PedidoViewController: UIViewController {
     
     var userLabel : UILabel?
     
+    var lalalaLabel : UILabel = {
+       let label = UILabel()
+        
+        return label
+    }()
+    
     var defaults = UserDefaults.standard
     
 
@@ -46,6 +52,8 @@ class PedidoViewController: UIViewController {
         userLabel?.font = .boldSystemFont(ofSize: 20)
         view.addSubview(userLabel!)
         
+        view.addSubview(lalalaLabel)
+        
     }
     
     
@@ -69,6 +77,7 @@ class PedidoViewController: UIViewController {
         passwordTextField?.layer.borderColor = UIColor.gray.cgColor
         passwordTextField?.layer.borderWidth = 3
         passwordTextField?.isSecureTextEntry = true
+        passwordTextField?.delegate = self
         
         
         view.addSubview(passwordTextField!)
@@ -101,6 +110,15 @@ class PedidoViewController: UIViewController {
         print("LOGIN OKOKOK")
         
         var alerta = ""
+        if let pass = passwordTextField?.text{
+            if pass != ""{
+                print(pass)
+            }else{
+                alerta = "Ingrese una contraseña valida"
+                
+            }
+        }
+        
         if let user = userTextField?.text{
             if user != ""{
                 print(user)
@@ -111,14 +129,7 @@ class PedidoViewController: UIViewController {
         }
         
         
-        if let pass = passwordTextField?.text{
-            if pass != ""{
-                print(pass)
-            }else{
-                alerta = "Ingrese una contraseña valida"
-                
-            }
-        }
+       
         if alerta != ""{
             let alertView = UIAlertController(title: "Error", message: alerta, preferredStyle: .alert)
             let aceptar = UIAlertAction(title: "Aceptar", style: .default, handler: nil)
@@ -138,4 +149,22 @@ class PedidoViewController: UIViewController {
     
     }
 
+}
+
+
+extension PedidoViewController : UITextFieldDelegate{
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        if let textFieldText = textField.text{
+            if let rangeOfTextToReplace = Range(range, in: textFieldText){
+                let substringToReplace = textFieldText[rangeOfTextToReplace]
+                let count = textFieldText.count - substringToReplace.count + string.count
+                return count <= 5
+            }
+        }
+
+      return false
+    }
+    
 }
