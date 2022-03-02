@@ -17,6 +17,14 @@ class MenuViewController : UIViewController {
     
     var backgorundColor = UIColor(displayP3Red: 0.95, green: 0.95, blue: 0.95, alpha: 1)
 
+    
+    var counter = 0
+    
+    var counterLabel : UILabel = {
+       let label = UILabel()
+        label.text = "0"
+        return label
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +43,10 @@ class MenuViewController : UIViewController {
         tableView?.dataSource = self
         
         view.addSubview(tableView!)
+        
+        
+        view.addSubview(counterLabel)
+        counterLabel.addAnchorsAndSize(width: 20, height: 20, left: nil, top: 2, right: 2, bottom: nil)
         
     }
     
@@ -123,6 +135,7 @@ extension MenuViewController : UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let product = dataSoruce?.categorias?[indexPath.section].productos?[indexPath.row]
         let cell = MenuTableViewCell(producto: product!)
+        cell.delegate = self
         return cell
     }
     
@@ -171,3 +184,11 @@ extension MenuViewController : UITableViewDelegate{
     }
 }
 
+extension MenuViewController : MenuTableViewCellDelegate{
+    func addToCard() {
+        print("Se agrego un nuevo producto")
+        counter += 1
+        counterLabel.text = "\(counter)"
+    }
+
+}

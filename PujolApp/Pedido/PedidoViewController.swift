@@ -159,12 +159,25 @@ extension PedidoViewController : UITextFieldDelegate{
         if let textFieldText = textField.text{
             if let rangeOfTextToReplace = Range(range, in: textFieldText){
                 let substringToReplace = textFieldText[rangeOfTextToReplace]
+         
                 let count = textFieldText.count - substringToReplace.count + string.count
+               
+              
+                print("count: \(count)")
+                print("textFieldText: \(textFieldText.count)")
+                print("substringToReplace: \(substringToReplace.count)")
+                print("string: \(string.count)")
                 return count <= 5
             }
         }
 
       return false
+    }
+    
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
     }
     
 }

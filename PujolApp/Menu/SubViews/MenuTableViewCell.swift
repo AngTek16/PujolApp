@@ -8,7 +8,14 @@
 import Foundation
 import UIKit
 
+
+protocol MenuTableViewCellDelegate{
+    func addToCard()
+}
+
 class MenuTableViewCell : UITableViewCell{
+    
+    var delegate : MenuTableViewCellDelegate?
     
     var ownContent : UIView?
     var nameProduct : UILabel?
@@ -20,9 +27,16 @@ class MenuTableViewCell : UITableViewCell{
     
     var producto : Producto?
     
+    var count = 0
     
     var width = UIScreen.main.bounds.width
     var height = UIScreen.main.bounds.height
+    
+    var counterLabel : UILabel = {
+       let label = UILabel()
+        label.text = "0"
+        return label
+    }()
     
     init(producto : Producto){
         super.init(style: .default, reuseIdentifier: nil)
@@ -37,7 +51,7 @@ class MenuTableViewCell : UITableViewCell{
         ownContent = UIView(frame: CGRect(x: 0, y: 5, width: width - 20, height: height/5 - 10))
         ownContent?.backgroundColor = .white
         ownContent?.layer.cornerRadius = 10
-        self.addSubview(ownContent!)
+        self.contentView.addSubview(ownContent!)
         
         
         nameProduct = UILabel(frame: CGRect(x: 5, y: 5, width: width/2, height: 20))
@@ -61,8 +75,12 @@ class MenuTableViewCell : UITableViewCell{
         addButton?.layer.borderColor = UIColor.orange.cgColor
         addButton?.layer.borderWidth = 1 // Aqui definimos el ancho del borde
         addButton?.layer.cornerRadius = 10
+        addButton?.addTarget(self, action: #selector(addProduct), for: .touchUpInside)
         
         ownContent?.addSubview(addButton!)
+        
+        ownContent?.addSubview(counterLabel)
+        counterLabel.addAnchorsAndSize(width: 20, height: 20, left: 10, top: nil, right: nil, bottom: 20, withAnchor: .left, relativeToView: addButton)
         
         
         
@@ -76,6 +94,15 @@ class MenuTableViewCell : UITableViewCell{
         ownContent?.addSubview(imageProduct!)
 
         
+        
+    }
+    
+    
+    @objc func addProduct(){
+        print("ADD \(producto?.nombre)")
+        count += 1
+        counterLabel.text = "\(count)"
+        delegate?.addToCard()
         
     }
     
