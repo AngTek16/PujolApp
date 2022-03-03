@@ -10,7 +10,7 @@ import UIKit
 
 
 protocol MenuTableViewCellDelegate{
-    func addToCard()
+    func addToCard(product : Producto, count : Int)
 }
 
 class MenuTableViewCell : UITableViewCell{
@@ -38,9 +38,10 @@ class MenuTableViewCell : UITableViewCell{
         return label
     }()
     
-    init(producto : Producto){
+    init(producto : Producto, numberOf : Int){
         super.init(style: .default, reuseIdentifier: nil)
         self.producto = producto
+        self.count = numberOf
         self.backgroundColor = .clear
         
         initUI()
@@ -79,6 +80,7 @@ class MenuTableViewCell : UITableViewCell{
         
         ownContent?.addSubview(addButton!)
         
+        counterLabel.text = "\(count)"
         ownContent?.addSubview(counterLabel)
         counterLabel.addAnchorsAndSize(width: 20, height: 20, left: 10, top: nil, right: nil, bottom: 20, withAnchor: .left, relativeToView: addButton)
         
@@ -102,7 +104,7 @@ class MenuTableViewCell : UITableViewCell{
         print("ADD \(producto?.nombre)")
         count += 1
         counterLabel.text = "\(count)"
-        delegate?.addToCard()
+        delegate?.addToCard(product: producto!, count: count)
         
     }
     

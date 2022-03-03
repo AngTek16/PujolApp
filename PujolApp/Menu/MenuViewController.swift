@@ -20,6 +20,8 @@ class MenuViewController : UIViewController {
     
     var counter = 0
     
+    var cart = [String:Any]()
+    
     var counterLabel : UILabel = {
        let label = UILabel()
         label.text = "0"
@@ -33,6 +35,7 @@ class MenuViewController : UIViewController {
         
         getData()
         initUI()
+
     }
     
     
@@ -51,6 +54,9 @@ class MenuViewController : UIViewController {
     }
     
     func getData(){
+        
+        cart = UserDefaults.standard.dictionary(forKey: "superCart") ?? [String:Any]()
+        countCounter()
         
         // MARK: - Bebidas
         let aguaDeldia = Producto(nombre: "Agua de horchata", descripcion: "Agua a base de arroz con infusion de leche y coronado con canela", precio: 99, imagen: "horchatita", peso: 250.0, calorias: 100)
@@ -134,7 +140,8 @@ extension MenuViewController : UITableViewDataSource{
     ///El tipo de celda que se mostrara
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let product = dataSoruce?.categorias?[indexPath.section].productos?[indexPath.row]
-        let cell = MenuTableViewCell(producto: product!)
+        let currentCounter = cart[product?.nombre ?? ""] ?? 0
+        let cell = MenuTableViewCell(producto: product!, numberOf: currentCounter as! Int )
         cell.delegate = self
         return cell
     }
@@ -143,7 +150,6 @@ extension MenuViewController : UITableViewDataSource{
         return height / 5
     }
 }
-
 
 
 // MARK: - UITableViewDelegate
@@ -185,9 +191,26 @@ extension MenuViewController : UITableViewDelegate{
 }
 
 extension MenuViewController : MenuTableViewCellDelegate{
-    func addToCard() {
-        print("Se agrego un nuevo producto")
-        counter += 1
+    func addToCard(product : Producto, count : Int) {
+        
+        cart[product.nombre ?? ""] = count
+        
+//        if !cart.contains(where: {$0.key == product.nombre}){
+//            cart[product.nombre ?? ""] = count
+//        }else{
+//            cart.removeValue(forKey: product.nombre ?? "")
+//            cart[product.nombre ?? ""] = count
+//        }
+        
+        UserDefaults.standard.set(cart, forKey: "superCart")
+        countCounter()
+    }
+    
+    func countCounter(){
+        counter = 0
+        for product in cart{
+            counter += product.value as! Int
+        }
         counterLabel.text = "\(counter)"
     }
 
